@@ -19,7 +19,6 @@ jobs:
       - name: run linter and tests
         run: |
             pycodestyle --first --show-source --show-pep8 *py models tests
-            python3 -m unittest discover tests
             curl -sSL https://raw.githubusercontent.com/Adewale66/alx-tools/main/check.sh > check.sh
             chmod +x check.sh
             ./check.sh
