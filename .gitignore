@@ -2,3 +2,4 @@ env
 __pycache__
 file.json
 demo*
+venv
