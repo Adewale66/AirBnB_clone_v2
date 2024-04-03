@@ -2,7 +2,6 @@
 # Fabric Script that deletes out-of-date archives
 
 from fabric.api import *
-from datetime import datetime
 import os
 
 env.hosts = ["100.25.118.136", "54.160.105.221"]
