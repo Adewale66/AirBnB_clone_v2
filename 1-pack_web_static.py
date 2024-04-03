@@ -7,11 +7,14 @@ def do_pack():
 
     from fabric.api import run
     from datetime import datetime
-    run("mkdir -p versions")
-    d = str(datetime.now())\
-        .replace("-", "").replace(":", "").replace(" ", "").split(".")[0]
-    filename = "web_static_{date}.tgz".format(date=d)
-    result = run("tar -cvzf versions/{file} web_static".format(file=filename))
-    if result.failed:
+    import os
+    
+    time = datetime.now().strftime("%Y%m%d%H%M%S")
+    file = "versions/web_static_{}.tgz".format(time)
+    if not os.path.exists("versions"):
+        os.makedirs("versions")
+    try:
+        run("tar -cvzf {} web_static".format(file))
+        return file
+    except Exception:
         return None
-    return filename
